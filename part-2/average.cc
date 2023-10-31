@@ -5,7 +5,7 @@
 #include <vector>
 
 int main(int argc, char* argv[]) {
-  std::vector<std::string> arguments{argv, argv + argc};
+  std::vector<std::string> arguments{argv, (argv + argc)};
 
   // Validate that there is at least one command line argument.
   // If not, print an error message and return a non-zero value.
@@ -15,10 +15,12 @@ if (arguments.size() < 1) {
 }
 bool flag = true;
 for (std::string argument:arguments)
-if (argument.size() == argument){
+if (argument.size() < 1){
 flag = false;
+break;
 }
-  // TODO: Write a for-each loop to sum (add up) all of the command line
+}
+  // Write a for-each loop to sum (add up) all of the command line
   // arguments.
   // Use a double or float type so that your program preserves fractional
   // values.
@@ -30,6 +32,7 @@ flag = false;
   // TODO: After the loop has finished summing the arguments, calculate the
   // average of the values. Recall that the average is the total value divided
   // by the number of values.
+
 
   // TODO: Use cout to print out a message of the form
   // average = *AVERAGE*
